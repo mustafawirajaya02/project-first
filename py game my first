@@ -1,0 +1,39 @@
+import pygame
+
+pygame.init()
+
+screen = pygame.display.set_mode((800, 600))
+pygame.display.set_caption("uji coba teks")
+
+font = pygame.font.SysFont("arial", 32)
+text = font.render("hallo nama saya ", True, (255, 255, 255))
+
+font = pygame.font.SysFont("arial", 32)
+retk = font.render("mustafa", True, (0, 0, 0))
+
+font = pygame.font.SysFont("arial", 34)
+teks = font.render("coba liat karna warnanya nyatu", True, (255, 255, 255))
+
+running = True
+while running:
+    screen.fill((0, 0, 0))
+
+    mouse_x, mouse_y = pygame.mouse.get_pos()
+
+    pygame.draw.rect(
+        screen,
+        (244, 0, 0),
+        (mouse_x, mouse_y, 100, 50)
+    )
+
+    screen.blit(text, (100, 350)) #posisi nya
+    screen.blit(retk, (100, 410))
+    screen.blit(teks, (89, 470))
+    pygame.display.flip()
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            running = False
+
+    pygame.display.update()
+
+pygame.quit()
